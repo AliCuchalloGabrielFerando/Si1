@@ -45,7 +45,8 @@ class DetalleComprasController extends Controller
         $detalleCompra->precio = $detalleCompra->cantidad * $detalleCompra->precio_unitario;
         $detalleCompra->compra_id = $compra_id;
 
-        $libro = Libro::where('titulo',$request->input('libro_nombre'))->get();
+        $libro_titulo= explode(' Edición',$request->input('libro_nombre'));
+        $libro = Libro::where('titulo',$libro_titulo)->get();
         if(sizeof($libro) == 0 ){
         return redirect()->route('libros.create');
         }
