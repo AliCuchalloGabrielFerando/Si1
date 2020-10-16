@@ -16,7 +16,7 @@
                                         <input type="search"  name="libro_nombre" value="{{old('libro_nombre')}}" class="form-control" placeholder="Elija Libro" list="listLibro">
                                         <datalist id="listLibro">
                                         @foreach($libros as $libro)
-                                           <option value="{{ $libro->titulo}}">
+                                           <option value="{{ $libro->titulo}}"> </option>
                                         </datalist>
                                         @error('libro_nombre')
                                         <span style="color:red">(*) {{ $message }}</span>
