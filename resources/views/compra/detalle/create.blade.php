@@ -16,8 +16,9 @@
                                         <input type="search"  name="libro_nombre" value="{{old('libro_nombre')}}" class="form-control" placeholder="Elija Libro" list="listLibro">
                                         <datalist id="listLibro">
                                         @foreach($libros as $libro)
-                                           <option value="{{ $libro->titulo}}"> </option>
-                                        </datalist>
+                                           <option value="{{ $libro->titulo .'    Edición: '. $libro->edicion .' de '. $libro->edicion_año .'    Editorial: '. $libro->editorial->nombre }}   Autores:  @foreach($libro->detalle_autores as $autor){{ $autor->autor->nombre_completo.', '}} @endforeach ">
+                                        @endforeach
+                                        </datalist>s
                                         @error('libro_nombre')
                                         <span style="color:red">(*) {{ $message }}</span>
                                        @enderror
