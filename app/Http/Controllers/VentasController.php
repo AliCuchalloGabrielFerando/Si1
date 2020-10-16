@@ -42,7 +42,8 @@ class VentasController extends Controller
             $nombre=$request->input('texto');
             $cliente=Cliente::where('apellido_paterno','like',"$nombre%")->get();
           }
-        return view('venta.create',['clientes'=>$cliente]);
+          $descuentos = Descuento::all();
+        return view('venta.create',['clientes'=>$cliente,'descuentos'=>$descuentos]);
     }
 
     /**
