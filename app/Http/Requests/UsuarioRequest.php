@@ -25,7 +25,7 @@ class UsuarioRequest extends FormRequest
     {
         return [
             'empleado_id'      => "required",
-            'correo'           => "required|email|unique:users,email,".$this->route('id'),
+            'correo'           => "required|email|unique:users,email,",//.$this->route('id'),
             'password'       => "required|string|min:4|confirmed"
         ];
     }
