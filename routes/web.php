@@ -1,5 +1,6 @@
 <?php
 
+use App\Estado;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +36,9 @@ Route::get('/prueba',function(){
 $cargo=new App\Cargo();
 $cargo->nombre="Administrador";
 $cargo->save();
-
+$estado = new Estado();
+$estado->nombre="estable";
+$estado->save();
 $empleado = new App\Empleado();
 $empleado->carnet_identidad ="786535425";
 $empleado->nombre="root";
@@ -43,7 +46,7 @@ $empleado->apellido_paterno="Mercedez";
 $empleado->apellido_materno="Gomez";
 $empleado->telefono="723434";
 $empleado->cargo_id=$cargo->id;
-$empleado->estado_id=1;
+$empleado->estado_id=$estado->id;
 $empleado->save();
 
 $user=new App\User();
